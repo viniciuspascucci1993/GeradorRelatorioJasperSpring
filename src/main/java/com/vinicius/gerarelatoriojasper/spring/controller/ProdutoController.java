@@ -33,8 +33,14 @@ public class ProdutoController {
 	@Autowired
 	private DataSource dataSource;
 	
+	/**
+	 * Exibindo relatorio em formato PDF com Jasper Reports.
+	 * @param response - HttpServletResponse - response.
+	 * @throws JRException - Exceção JRException.
+	 * @throws SQLException - Exceção SQLException.
+	 */
 	@RequestMapping( value = "/relatorios", method = RequestMethod.GET)
-	public void imprimirRelatorio( HttpServletResponse response) throws JRException, SQLException {
+	public void exibirRelatorioPDF( HttpServletResponse response) throws JRException, SQLException {
 		
 		InputStream reportStream = this.getClass().getResourceAsStream("/relatorios/Produtos.jasper");
 		
