@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Jaspersoft Studio version 6.10.0.final using JasperReports Library version 6.10.0-unknown  -->
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Produtos" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a269e36a-f67a-40e0-8cee-c606dfdd0329">
-	<parameter name="PARAM_1" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select id, nome, codigo, preco from produto]]>
 	</queryString>
@@ -90,7 +89,7 @@
 				<textElement>
 					<font size="12"/>
 				</textElement>
-				<text><![CDATA[Preço]]></text>
+				<text><![CDATA[Preço (R$)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="219" y="10" width="250" height="20" uuid="227cc191-acc8-47d9-b95a-51d6c33caa9a"/>
@@ -122,7 +121,7 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$F{id}]]></textFieldExpression>
 			</textField>
-			<textField isBlankWhenNull="true">
+			<textField pattern="¤#,#00.00####;¤(-#,#00.00####)" isBlankWhenNull="true">
 				<reportElement x="470" y="0" width="80" height="20" uuid="4e63455a-c928-4a9c-bf13-e99c0bd18ec9"/>
 				<box>
 					<topPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
@@ -130,7 +129,7 @@
 					<bottomPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 					<rightPen lineWidth="1.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
-				<textElement>
+				<textElement textAlignment="Right">
 					<font size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{preco}]]></textFieldExpression>
